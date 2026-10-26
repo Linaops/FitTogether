@@ -1,0 +1,1044 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --dark-green: #285c35;
+    --green: #4f8b5b;
+    --light-green: #dcefd9;
+    --very-light-green: #eef7ec;
+    --text: #315c3b;
+    --soft-text: #719176;
+    --white: #ffffff;
+    --border: #d4e6d1;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #202020;
+    color: var(--text);
+}
+
+
+/* =========================================
+   APP
+========================================= */
+
+.app {
+    width: 100%;
+    max-width: 390px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: white;
+    position: relative;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   SCHERMEN
+========================================= */
+
+.screen {
+    display: none;
+    min-height: 100vh;
+    background: white;
+    padding-bottom: 75px;
+}
+
+.screen.active {
+    display: block;
+}
+
+
+/* =========================================
+   STARTSCHERM
+========================================= */
+
+.start-screen {
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.start-screen.active {
+    display: flex;
+}
+
+.start-content {
+    width: 100%;
+    max-width: 260px;
+}
+
+.start-logo {
+    width: 145px;
+    height: auto;
+    display: block;
+    margin: 0 auto 8px;
+}
+
+.start-screen h1 {
+    color: var(--green);
+    font-size: 25px;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.start-text {
+    color: var(--soft-text);
+    font-size: 10px;
+    margin-bottom: 28px;
+}
+
+
+/* =========================================
+   ALGEMENE PAGINA
+========================================= */
+
+.page-content {
+    padding: 18px 22px 30px;
+}
+
+.welcome-content {
+    padding-top: 45px;
+    text-align: center;
+}
+
+.welcome-logo {
+    width: 110px;
+    display: block;
+    margin: 0 auto 22px;
+}
+
+h2 {
+    color: var(--green);
+    font-size: 23px;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: var(--soft-text);
+    font-size: 10px;
+    margin-bottom: 25px;
+}
+
+h3 {
+    color: var(--dark-green);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+p {
+    color: var(--soft-text);
+    font-size: 9px;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   GROENE HEADER
+========================================= */
+
+.green-header {
+    height: 145px;
+    position: relative;
+    overflow: hidden;
+    background: var(--light-green);
+    border-radius: 0 0 25px 25px;
+}
+
+.green-header::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 100px;
+    top: -35px;
+    right: -35px;
+    background-image: url("fitness-banner.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
+    border-radius: 50%;
+}
+
+.green-header::after {
+    content: "";
+    position: absolute;
+    width: 130px;
+    height: 80px;
+    top: 0;
+    left: -45px;
+    background-image: url("fitness-banner.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.65;
+    border-radius: 50%;
+}
+
+.header-decoration {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    padding: 30px 22px;
+}
+
+.small-header-text {
+    color: var(--green);
+    font-size: 8px;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.green-header h2 {
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.green-header p {
+    color: var(--green);
+}
+
+.small-header {
+    height: 135px;
+}
+
+
+/* =========================================
+   TERUG KNOP
+========================================= */
+
+.back-button {
+    background: transparent;
+    color: var(--green);
+    font-size: 9px;
+    padding: 0;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+
+/* =========================================
+   FORMULIEREN
+========================================= */
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--dark-green);
+    font-size: 9px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+input,
+select {
+    width: 100%;
+    height: 39px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--very-light-green);
+    color: var(--text);
+    padding: 0 12px;
+    font-family: inherit;
+    font-size: 9px;
+    outline: none;
+}
+
+input::placeholder {
+    color: #8aa58e;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--green);
+    background: white;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+}
+
+.form-row .form-group {
+    width: 50%;
+}
+
+
+/* =========================================
+   KNOPPEN
+========================================= */
+
+button {
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.primary-button {
+    width: 100%;
+    height: 36px;
+    margin-top: 8px;
+    border-radius: 7px;
+    background: var(--dark-green);
+    color: white;
+    font-size: 9px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.primary-button:hover {
+    background: #1f4a2b;
+    transform: translateY(-1px);
+}
+
+.small-button {
+    background: var(--dark-green);
+    color: white;
+    border-radius: 6px;
+    padding: 7px 10px;
+    font-size: 8px;
+    font-weight: 600;
+}
+
+.small-button:hover {
+    background: #1f4a2b;
+}
+
+.secondary-full-button {
+    width: 100%;
+    height: 35px;
+    margin-top: 8px;
+    border-radius: 7px;
+    background: var(--light-green);
+    color: var(--dark-green);
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.text-button {
+    background: transparent;
+    color: var(--green);
+    font-size: 8px;
+    font-weight: 600;
+}
+
+.edit-button {
+    background: var(--light-green);
+    color: var(--dark-green);
+    border-radius: 6px;
+    padding: 7px 9px;
+    font-size: 8px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   HOME
+========================================= */
+
+.home-content {
+    padding-top: 18px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4px 0 8px;
+}
+
+.section-heading > span {
+    color: var(--soft-text);
+    font-size: 8px;
+}
+
+
+/* Volgende activiteit */
+
+.activity-preview {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    background: var(--light-green);
+    border-radius: 10px;
+    padding: 11px;
+    margin-bottom: 17px;
+}
+
+.activity-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+}
+
+.activity-preview-info {
+    flex: 1;
+}
+
+.activity-preview-info strong {
+    display: block;
+    color: var(--dark-green);
+    font-size: 10px;
+    margin-bottom: 3px;
+}
+
+.activity-preview-info p {
+    font-size: 8px;
+}
+
+
+/* Voortgang */
+
+.progress-card {
+    background: var(--very-light-green);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.progress-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 9px;
+}
+
+.progress-top strong {
+    display: block;
+    color: var(--dark-green);
+    font-size: 10px;
+    margin-bottom: 2px;
+}
+
+.progress-top p {
+    font-size: 8px;
+}
+
+.progress-top > span {
+    color: var(--green);
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 7px;
+    background: #c9dfc6;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--green);
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+
+/* Streak */
+
+.streak-card {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    background: var(--light-green);
+    border-radius: 10px;
+    padding: 11px;
+    margin-bottom: 19px;
+}
+
+.streak-icon {
+    width: 38px;
+    height: 38px;
+    background: white;
+    border-radius: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.streak-card p {
+    margin-bottom: 2px;
+}
+
+.streak-card strong {
+    color: var(--dark-green);
+    font-size: 13px;
+}
+
+
+/* Snelle acties */
+
+.quick-title {
+    margin-bottom: 8px;
+}
+
+.quick-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.quick-action {
+    min-height: 62px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    text-align: left;
+    padding: 9px;
+    transition: 0.2s;
+}
+
+.quick-action:hover {
+    background: var(--very-light-green);
+}
+
+.quick-action span {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.quick-action strong {
+    display: block;
+    color: var(--dark-green);
+    font-size: 8px;
+}
+
+
+/* =========================================
+   VRIENDEN
+========================================= */
+
+.friends-heading {
+    margin-top: 22px;
+}
+
+#friends-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.friend-card {
+    display: flex;
+    align-items: center;
+    background: var(--light-green);
+    border-radius: 9px;
+    padding: 9px;
+}
+
+.friend-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+.friend-info {
+    flex: 1;
+    margin-left: 9px;
+}
+
+.friend-info strong {
+    display: block;
+    color: var(--dark-green);
+    font-size: 9px;
+    margin-bottom: 2px;
+}
+
+.friend-info p {
+    font-size: 7px;
+}
+
+.online-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #70a86f;
+    margin-right: 5px;
+}
+
+.friends-tip {
+    display: flex;
+    gap: 9px;
+    background: var(--very-light-green);
+    border-radius: 9px;
+    padding: 10px;
+    margin-top: 18px;
+}
+
+.friends-tip > span {
+    font-size: 15px;
+}
+
+.friends-tip strong {
+    color: var(--dark-green);
+    font-size: 8px;
+}
+
+.friends-tip p {
+    font-size: 7px;
+    margin-top: 2px;
+}
+
+
+/* Vriend zoeken */
+
+.friend-search-result {
+    display: flex;
+    align-items: center;
+    background: var(--light-green);
+    border-radius: 9px;
+    padding: 9px;
+    margin-top: 15px;
+}
+
+.friend-search-result .small-button {
+    margin-left: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================
+   CHALLENGES
+========================================= */
+
+.challenge-feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--light-green);
+    border-radius: 10px;
+    padding: 11px;
+    margin-bottom: 18px;
+}
+
+.challenge-feature-icon {
+    width: 38px;
+    height: 38px;
+    background: white;
+    border-radius: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.challenge-feature strong {
+    color: var(--dark-green);
+    display: block;
+    font-size: 10px;
+    margin-bottom: 2px;
+}
+
+.challenge-feature p {
+    font-size: 7px;
+}
+
+.challenge-card {
+    display: flex;
+    gap: 9px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 9px;
+}
+
+.challenge-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    background: var(--light-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+.challenge-content {
+    flex: 1;
+}
+
+.challenge-content > strong {
+    display: block;
+    color: var(--dark-green);
+    font-size: 9px;
+    margin-bottom: 2px;
+}
+
+.challenge-content > p {
+    font-size: 7px;
+    margin-bottom: 7px;
+}
+
+.challenge-progress {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 7px;
+}
+
+.challenge-progress .progress-bar {
+    flex: 1;
+    height: 5px;
+}
+
+.challenge-progress > span {
+    color: var(--soft-text);
+    font-size: 7px;
+    white-space: nowrap;
+}
+
+.challenge-button {
+    font-size: 7px;
+    padding: 6px 9px;
+}
+
+.challenge-button:disabled {
+    cursor: default;
+}
+
+
+/* =========================================
+   PROFIEL
+========================================= */
+
+.profile-main-card {
+    display: flex;
+    align-items: center;
+    background: var(--light-green);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.profile-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.profile-main-info {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.profile-main-info strong {
+    display: block;
+    color: var(--dark-green);
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.profile-main-info p {
+    font-size: 8px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: var(--very-light-green);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    text-align: center;
+    padding: 10px 4px;
+}
+
+.stat-card strong {
+    display: block;
+    color: var(--dark-green);
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+.stat-card span {
+    color: var(--soft-text);
+    font-size: 7px;
+}
+
+.profile-section-title {
+    margin-bottom: 8px;
+}
+
+.profile-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--very-light-green);
+    border-radius: 9px;
+    padding: 10px;
+    margin-top: 8px;
+}
+
+.profile-option > span {
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.profile-option strong {
+    display: block;
+    color: var(--dark-green);
+    font-size: 8px;
+    margin-bottom: 2px;
+}
+
+.profile-option p {
+    font-size: 7px;
+}
+
+
+/* Profiel aanpassen */
+
+.edit-profile-avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: var(--light-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    margin: 5px auto 25px;
+}
+
+
+/* =========================================
+   ACTIVITEIT PLANNEN
+========================================= */
+
+.activity-tip {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: var(--very-light-green);
+    border-radius: 8px;
+    padding: 9px;
+    margin-top: 5px;
+}
+
+.activity-tip span {
+    font-size: 15px;
+}
+
+.activity-tip p {
+    font-size: 7px;
+}
+
+
+/* =========================================
+   ACTIVITEIT BEKIJKEN
+========================================= */
+
+.big-activity-card {
+    background: var(--very-light-green);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+}
+
+.big-activity-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: var(--light-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin: 0 auto 8px;
+}
+
+.activity-status {
+    display: inline-block;
+    background: var(--light-green);
+    color: var(--green);
+    border-radius: 20px;
+    padding: 4px 8px;
+    font-size: 7px;
+    font-weight: 600;
+    margin-bottom: 9px;
+}
+
+.big-activity-card h3 {
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.activity-detail {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 10px;
+    background: white;
+    border-radius: 8px;
+    padding: 9px;
+    margin-bottom: 7px;
+}
+
+.activity-detail > span {
+    font-size: 14px;
+}
+
+.activity-detail small {
+    display: block;
+    color: var(--soft-text);
+    font-size: 7px;
+    margin-bottom: 2px;
+}
+
+.activity-detail strong {
+    color: var(--dark-green);
+    font-size: 9px;
+}
+
+
+/* =========================================
+   MAALTIJD
+========================================= */
+
+.meal-intro {
+    width: 55px;
+    height: 55px;
+    border-radius: 13px;
+    background: var(--light-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 20px;
+}
+
+.planned-meal {
+    background: var(--light-green);
+    border-radius: 9px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.planned-meal strong {
+    display: block;
+    color: var(--dark-green);
+    font-size: 9px;
+    margin-bottom: 3px;
+}
+
+.planned-meal p {
+    font-size: 8px;
+}
+
+
+/* =========================================
+   BOTTOM NAVIGATIE
+========================================= */
+
+.bottom-nav {
+    position: fixed;
+    z-index: 20;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(350px, calc(100% - 30px));
+    height: 52px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    box-shadow: 0 4px 18px rgba(40, 92, 53, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.nav-button {
+    background: transparent;
+    color: #8aa58e;
+    font-size: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    min-width: 55px;
+}
+
+.nav-button span {
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.nav-button.active-nav {
+    color: var(--dark-green);
+    font-weight: bold;
+}
+
+
+/* =========================================
+   MOBIEL
+========================================= */
+
+@media (max-width: 390px) {
+
+    .app {
+        max-width: 100%;
+    }
+
+    .page-content {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .bottom-nav {
+        width: calc(100% - 24px);
+    }
+}

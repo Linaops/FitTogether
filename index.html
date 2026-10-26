@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTogether</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+
+    <section id="start-screen" class="screen active start-screen">
+        <div class="start-content">
+            <img src="fittogether-logo.png" alt="FitTogether logo" class="start-logo">
+            <h1>FitTogether</h1>
+            <p class="start-text">Samen sporten, samen groeien</p>
+            <button class="primary-button" onclick="showScreen('welcome-screen')">Start</button>
+        </div>
+    </section>
+
+    <section id="welcome-screen" class="screen">
+        <div class="page-content welcome-content">
+            <img src="fittogether-logo.png" alt="FitTogether logo" class="welcome-logo">
+            <h2>Welkom!</h2>
+            <p class="subtitle">Laten we je profiel maken</p>
+            <div class="form-group">
+                <label for="name-input">Naam</label>
+                <input type="text" id="name-input" placeholder="Je naam">
+            </div>
+            <button class="primary-button" onclick="saveName()">Doorgaan</button>
+        </div>
+    </section>
+
+    <section id="home-screen" class="screen">
+        <div class="green-header">
+            <div class="header-decoration"></div>
+            <div class="header-content">
+                <p class="small-header-text">FitTogether</p>
+                <h2 id="home-title">Hoi!</h2>
+                <p>Klaar om samen actief te zijn?</p>
+            </div>
+        </div>
+
+        <div class="page-content home-content">
+            <div class="section-heading">
+                <h3>Volgende activiteit</h3>
+                <button class="text-button" onclick="showScreen('activity-plan-screen')">+ Nieuw</button>
+            </div>
+
+            <div class="activity-preview">
+                <div class="activity-icon">🏃</div>
+                <div class="activity-preview-info">
+                    <strong id="next-activity">Nog niets gepland</strong>
+                    <p id="next-activity-details">Plan een activiteit met je vrienden</p>
+                </div>
+            </div>
+
+            <div class="section-heading">
+                <h3>Mijn week</h3>
+                <span id="weekly-progress-text">0 / 5</span>
+            </div>
+
+            <div class="progress-card">
+                <div class="progress-top">
+                    <div>
+                        <strong>Sportieve week</strong>
+                        <p>Blijf samen actief!</p>
+                    </div>
+                    <span id="weekly-percentage">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div id="weekly-progress-bar" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="streak-card">
+                <div class="streak-icon">🔥</div>
+                <div>
+                    <p>Mijn sportstreak</p>
+                    <strong id="home-streak">0 dagen</strong>
+                </div>
+            </div>
+
+            <h3 class="quick-title">Snelle acties</h3>
+
+            <div class="quick-actions">
+                <button class="quick-action" onclick="showScreen('activity-plan-screen')">
+                    <span>📅</span>
+                    <strong>Activiteit plannen</strong>
+                </button>
+                <button class="quick-action" onclick="showScreen('challenges-screen')">
+                    <span>🏆</span>
+                    <strong>Challenges</strong>
+                </button>
+                <button class="quick-action" onclick="showScreen('meal-screen')">
+                    <span>🥗</span>
+                    <strong>Maaltijd plannen</strong>
+                </button>
+                <button class="quick-action" onclick="showScreen('friends-screen')">
+                    <span>👥</span>
+                    <strong>Vrienden</strong>
+                </button>
+            </div>
+        </div>
+
+        <nav class="bottom-nav">
+            <button class="nav-button active-nav" onclick="showScreen('home-screen')"><span>⌂</span>Home</button>
+            <button class="nav-button" onclick="showScreen('friends-screen')"><span>♧</span>Vrienden</button>
+            <button class="nav-button" onclick="showScreen('challenges-screen')"><span>♢</span>Challenges</button>
+            <button class="nav-button" onclick="showScreen('profile-screen')"><span>○</span>Profiel</button>
+        </nav>
+    </section>
+
+    <section id="friends-screen" class="screen">
+        <div class="green-header">
+            <div class="header-decoration"></div>
+            <div class="header-content">
+                <p class="small-header-text">Samen is leuker</p>
+                <h2>Vrienden</h2>
+                <p>Sport samen met de mensen die je kent.</p>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <button class="primary-button" onclick="showScreen('add-friend-screen')">+ Vriend toevoegen</button>
+
+            <div class="section-heading friends-heading">
+                <h3>Mijn vrienden</h3>
+                <span id="friend-count">2 vrienden</span>
+            </div>
+
+            <div id="friends-list">
+                <div class="friend-card">
+                    <div class="friend-avatar">👤</div>
+                    <div class="friend-info">
+                        <strong>Vriend 1</strong>
+                        <p>Fitness</p>
+                    </div>
+                    <span class="online-dot"></span>
+                </div>
+
+                <div class="friend-card">
+                    <div class="friend-avatar">👤</div>
+                    <div class="friend-info">
+                        <strong>Vriend 2</strong>
+                        <p>Hardlopen</p>
+                    </div>
+                    <span class="online-dot"></span>
+                </div>
+            </div>
+
+            <div class="friends-tip">
+                <span>💡</span>
+                <div>
+                    <strong>Samen sporten</strong>
+                    <p>Plan een activiteit en nodig je vrienden uit.</p>
+                </div>
+            </div>
+        </div>
+
+        <nav class="bottom-nav">
+            <button class="nav-button" onclick="showScreen('home-screen')"><span>⌂</span>Home</button>
+            <button class="nav-button active-nav" onclick="showScreen('friends-screen')"><span>♧</span>Vrienden</button>
+            <button class="nav-button" onclick="showScreen('challenges-screen')"><span>♢</span>Challenges</button>
+            <button class="nav-button" onclick="showScreen('profile-screen')"><span>○</span>Profiel</button>
+        </nav>
+    </section>
+
+    <section id="add-friend-screen" class="screen">
+        <div class="green-header small-header">
+            <div class="header-content">
+                <button class="back-button" onclick="showScreen('friends-screen')">← Terug</button>
+                <h2>Vriend toevoegen</h2>
+                <p>Zoek je vriend op gebruikersnaam.</p>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="form-group">
+                <label for="friend-input">Gebruikersnaam</label>
+                <input type="text" id="friend-input" placeholder="Bijvoorbeeld: Vriend 3">
+            </div>
+
+            <button class="primary-button" onclick="searchFriend()">Vriend zoeken</button>
+
+            <div id="friend-result" class="friend-search-result hidden">
+                <div class="friend-avatar">👤</div>
+                <div class="friend-info">
+                    <strong id="searched-friend-name">Vriend 3</strong>
+                    <p>Gebruiker gevonden</p>
+                </div>
+                <button class="small-button" onclick="addFriend()">Toevoegen</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="challenges-screen" class="screen">
+        <div class="green-header">
+            <div class="header-content">
+                <p class="small-header-text">Samen bereiken</p>
+                <h2>Challenges</h2>
+                <p>Daag jezelf en je vrienden uit.</p>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="challenge-feature">
+                <div class="challenge-feature-icon">🔥</div>
+                <div>
+                    <strong>Deze week</strong>
+                    <p>Blijf actief en bouw je streak op!</p>
+                </div>
+            </div>
+
+            <div class="section-heading">
+                <h3>Challenges</h3>
+                <span id="joined-challenges">0 actief</span>
+            </div>
+
+            <div class="challenge-card" data-challenge="week">
+                <div class="challenge-icon">🔥</div>
+                <div class="challenge-content">
+                    <strong>7 dagen sporten</strong>
+                    <p>Sport 7 dagen achter elkaar.</p>
+                    <div class="challenge-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill challenge-progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span>0 / 7</span>
+                    </div>
+                    <button class="small-button challenge-button" onclick="joinChallenge(this)">Meedoen</button>
+                </div>
+            </div>
+
+            <div class="challenge-card" data-challenge="friends">
+                <div class="challenge-icon">👥</div>
+                <div class="challenge-content">
+                    <strong>Samen 3x sporten</strong>
+                    <p>Plan 3 activiteiten met vrienden.</p>
+                    <div class="challenge-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span>0 / 3</span>
+                    </div>
+                    <button class="small-button challenge-button" onclick="joinChallenge(this)">Meedoen</button>
+                </div>
+            </div>
+
+            <div class="challenge-card" data-challenge="food">
+                <div class="challenge-icon">🥗</div>
+                <div class="challenge-content">
+                    <strong>Samen gezond eten</strong>
+                    <p>Maak samen 2 gezonde maaltijden.</p>
+                    <div class="challenge-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span>0 / 2</span>
+                    </div>
+                    <button class="small-button challenge-button" onclick="joinChallenge(this)">Meedoen</button>
+                </div>
+            </div>
+        </div>
+
+        <nav class="bottom-nav">
+            <button class="nav-button" onclick="showScreen('home-screen')"><span>⌂</span>Home</button>
+            <button class="nav-button" onclick="showScreen('friends-screen')"><span>♧</span>Vrienden</button>
+            <button class="nav-button active-nav" onclick="showScreen('challenges-screen')"><span>♢</span>Challenges</button>
+            <button class="nav-button" onclick="showScreen('profile-screen')"><span>○</span>Profiel</button>
+        </nav>
+    </section>
+
+    <section id="profile-screen" class="screen">
+        <div class="green-header">
+            <div class="header-content">
+                <p class="small-header-text">Mijn account</p>
+                <h2>Mijn profiel</h2>
+                <p>Bekijk je voortgang en gegevens.</p>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="profile-main-card">
+                <div class="profile-avatar">👤</div>
+                <div class="profile-main-info">
+                    <strong id="profile-name">Je naam</strong>
+                    <p id="profile-sport">Sportliefhebber</p>
+                </div>
+                <button class="edit-button" onclick="openEditProfile()">Bewerken</button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <strong id="profile-streak">0</strong>
+                    <span>Streak</span>
+                </div>
+                <div class="stat-card">
+                    <strong id="profile-activities">0</strong>
+                    <span>Activiteiten</span>
+                </div>
+                <div class="stat-card">
+                    <strong id="profile-challenges">0</strong>
+                    <span>Challenges</span>
+                </div>
+            </div>
+
+            <h3 class="profile-section-title">Mijn voortgang</h3>
+
+            <div class="progress-card">
+                <div class="progress-top">
+                    <div>
+                        <strong>Deze week</strong>
+                        <p>Activiteiten voltooid</p>
+                    </div>
+                    <span id="profile-week-progress">0 / 5</span>
+                </div>
+                <div class="progress-bar">
+                    <div id="profile-progress-bar" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="profile-option">
+                <span>🏃</span>
+                <div>
+                    <strong>Mijn sport</strong>
+                    <p id="profile-sport-option">Nog niet gekozen</p>
+                </div>
+            </div>
+
+            <div class="profile-option">
+                <span>🔥</span>
+                <div>
+                    <strong>Sportstreak</strong>
+                    <p>Houd je streak actief door te sporten.</p>
+                </div>
+            </div>
+        </div>
+
+        <nav class="bottom-nav">
+            <button class="nav-button" onclick="showScreen('home-screen')"><span>⌂</span>Home</button>
+            <button class="nav-button" onclick="showScreen('friends-screen')"><span>♧</span>Vrienden</button>
+            <button class="nav-button" onclick="showScreen('challenges-screen')"><span>♢</span>Challenges</button>
+            <button class="nav-button active-nav" onclick="showScreen('profile-screen')"><span>○</span>Profiel</button>
+        </nav>
+    </section>
+
+    <section id="edit-profile-screen" class="screen">
+        <div class="green-header small-header">
+            <div class="header-content">
+                <button class="back-button" onclick="showScreen('profile-screen')">← Terug</button>
+                <h2>Profiel aanpassen</h2>
+                <p>Pas je gegevens aan.</p>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="edit-profile-avatar">👤</div>
+
+            <div class="form-group">
+                <label for="edit-name-input">Naam</label>
+                <input type="text" id="edit-name-input" placeholder="Je naam">
+            </div>
+
+            <div class="form-group">
+                <label for="edit-sport-input">Mijn sport</label>
+                <select id="edit-sport-input">
+                    <option value="">Kies je sport</option>
+                    <option value="Fitness">Fitness</option>
+                    <option value="Hardlopen">Hardlopen</option>
+                    <option value="Volleybal">Volleybal</option>
+                    <option value="Wandelen">Wandelen</option>
+                    <option value="Fietsen">Fietsen</option>
+                    <option value="Yoga">Yoga</option>
+                </select>
+            </div>
+
+            <button class="primary-button" onclick="saveProfileChanges()">Wijzigingen opslaan</button>
+        </div>
+    </section>
+
+    <section id="activity-plan-screen" class="screen">
+        <div class="green-header small-header">
+            <div class="header-content">
+                <button class="back-button" onclick="showScreen('home-screen')">← Terug</button>
+                <h2>Activiteit plannen</h2>
+                <p>Plan iets leuks met je vrienden.</p>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="form-group">
+                <label for="sport-input">Sport</label>
+                <select id="sport-input">
+                    <option value="">Kies een sport</option>
+                    <option value="Fitness">Fitness</option>
+                    <option value="Hardlopen">Hardlopen</option>
+                    <option value="Volleybal">Volleybal</option>
+                    <option value="Wandelen">Wandelen</option>
+                    <option value="Fietsen">Fietsen</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="date-input">Datum</label>
+                    <input type="date" id="date-input">
+                </div>
+                <div class="form-group">
+                    <label for="time-input">Tijd</label>
+                    <input type="time" id="time-input">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="friends-select">Met wie?</label>
+                <select id="friends-select">
+                    <option value="">Kies een vriend</option>
+                    <option value="Vriend 1">Vriend 1</option>
+                    <option value="Vriend 2">Vriend 2</option>
+                    <option value="Vriend 3">Vriend 3</option>
+                    <option value="Vriend 1, Vriend 2">Vriend 1 & Vriend 2</option>
+                </select>
+            </div>
+
+            <div class="activity-tip">
+                <span>💚</span>
+                <p>Samen sporten maakt het makkelijker om gemotiveerd te blijven.</p>
+            </div>
+
+            <button class="primary-button" onclick="createActivity()">Activiteit aanmaken</button>
+        </div>
+    </section>
+
+    <section id="activity-view-screen" class="screen">
+        <div class="green-header small-header">
+            <div class="header-content">
+                <button class="back-button" onclick="showScreen('home-screen')">← Terug</button>
+                <h2>Activiteit bekijken</h2>
+                <p>Dit staat er gepland.</p>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="big-activity-card">
+                <div class="big-activity-icon">🏃</div>
+                <div class="activity-status">Gepland</div>
+                <h3 id="activity-sport">Fitness</h3>
+
+                <div class="activity-detail">
+                    <span>📅</span>
+                    <div>
+                        <small>Datum</small>
+                        <strong id="activity-date">-</strong>
+                    </div>
+                </div>
+
+                <div class="activity-detail">
+                    <span>⏰</span>
+                    <div>
+                        <small>Tijd</small>
+                        <strong id="activity-time">-</strong>
+                    </div>
+                </div>
+
+                <div class="activity-detail">
+                    <span>👥</span>
+                    <div>
+                        <small>Met</small>
+                        <strong id="activity-friends">-</strong>
+                    </div>
+                </div>
+
+                <button class="primary-button" onclick="completeActivity()">Activiteit voltooien</button>
+                <button class="secondary-full-button" onclick="showScreen('meal-screen')">+ Maaltijd plannen</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="meal-screen" class="screen">
+        <div class="green-header small-header">
+            <div class="header-content">
+                <button class="back-button" onclick="showScreen('home-screen')">← Terug</button>
+                <h2>Maaltijd plannen</h2>
+                <p>Plan samen iets lekkers na het sporten.</p>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="meal-intro">🥗</div>
+
+            <div class="form-group">
+                <label for="meal-input">Maaltijd</label>
+                <input type="text" id="meal-input" placeholder="Bijvoorbeeld: gezonde wraps">
+            </div>
+
+            <div class="form-group">
+                <label for="meal-date">Datum</label>
+                <input type="date" id="meal-date">
+            </div>
+
+            <div class="form-group">
+                <label for="meal-friends">Met wie?</label>
+                <select id="meal-friends">
+                    <option value="">Kies een vriend</option>
+                    <option value="Vriend 1">Vriend 1</option>
+                    <option value="Vriend 2">Vriend 2</option>
+                    <option value="Vriend 3">Vriend 3</option>
+                </select>
+            </div>
+
+            <div id="planned-meal" class="planned-meal hidden">
+                <strong>Maaltijd gepland ✓</strong>
+                <p id="planned-meal-text"></p>
+            </div>
+
+            <button class="primary-button" onclick="planMeal()">Maaltijd plannen</button>
+        </div>
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
